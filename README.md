@@ -1,193 +1,75 @@
-# Gui_Sorts
+# Project README
 
+## Overview
+This project is a simple sorting visualization application developed in C. It allows users to visually observe the process of different sorting algorithms such as Bubble Sort, Insertion Sort, Selection Sort, Merge Sort, and Quick Sort.
 
-## Project Overview
+## Features
+- Visualization of various sorting algorithms.
+- Real-time rendering of sorting steps.
+- Interactive control over the size of the data set and selection of sorting algorithm.
 
-This project implements specialized functionality related to sorts.
-
-## Core Components
-
-### Main Functionality
-- Implements core algorithms for sorts
-- Efficient data structures
-- Optimized performance
-- Clean code organization
-
-### Technical Features
-- C/C++ implementation
-- Dynamic memory management
-- Platform-independent design
-- Real-time capable
-
-### Architecture
-- Module separation
-- Clear interface design
-- Proper abstraction layers
-- Extensible design
-
-## Use Cases
-- Production systems
-- Educational purposes
-- Research applications
-- Performance-critical operations
-
-## Performance Characteristics
-- Optimized algorithms
-- Efficient memory usage
-- Scalable architecture
-- Minimal overhead
-
-## Implementation Quality
-- Well-organized code
-- Meaningful naming
-- Proper error handling
-- Memory management
-
-## Build and Deployment
-- Standard C/C++ compilation
-- Makefile-based building
-- Cross-platform support
-- Easy integration
-
-
-## Building the Project
-
-### Prerequisites
-- C/C++ Compiler (GCC, Clang, or MSVC)
-- Make utility
-- Standard development tools
-
-### Build Steps
-
-1. Navigate to project directory:
-```bash
-cd Gui_Sorts
+## Project Structure
+The project structure is organized as follows:
 ```
-
-2. Build the project:
-```bash
-make -f Makefile.(os) all
-```
-
-3. For clean rebuild:
-```bash
-make -f Makefile.(os) clean
-make -f Makefile.(os) all
-```
-
-4. If there are ./bin and ./libs directories, build libs with:
-```bash
-make -f Makefile.(os) cleanlib
-make -f Makefile.(os) lib
-```
-
-### Build Options
-```bash
-make -f Makefile.(os) all         # build output
-make -f Makefile.(os) do        # build + exe output
-make -f Makefile.(os) clean   # Remove build artifacts
-```
-
-## Running the Project
-
-Execute the compiled binary:
-
-```bash
-./build/Main(.exe)
-```
-
-Or using make:
-```bash
-make -f Makefile.(os) exe
-```
-
-## Project Organization
-
-```
-Gui_Sorts/
-├── src/
-│   ├── Main.c          # Entry point
-│   └── *.c             # Implementation files
-├── Makefile            # Build configuration
+<Project>/
+├── src/                # Source code directory
+│   ├── Main.c          # Entry point file
+│   └── *.h             # Header files used by Main.c
+├── Makefile.linux      # Linux build configuration
+├── Makefile.windows    # Windows build configuration
+├── Makefile.wine       # Wine build configuration for cross-compiling to Windows
+├── Makefile.web        # Emscripten build configuration for WebAssembly
 └── README.md           # This file
 ```
 
-## Technical Details
+### Prerequisites
+- C/C++ Compiler and Debugger (GCC, Clang)
+- Make utility
+- Standard development tools
+- Libraries needed:
+  - For Linux: X11, PNG, JPEG
+  - For Windows: WINAPI
+  - For WebAssembly: Emscripten
 
-### Language: C/C++
-- Performance-oriented
-- Direct hardware access where needed
-- Memory efficient
-- Widely portable
+## Build & Run
+### Build on Linux
+To build the project on a Linux system, follow these steps:
+```sh
+cd <Project>
+make -f Makefile.linux all
+```
+This will compile the source code and generate an executable named `Main` in the `build` directory.
 
-### Key Technologies
-- Standard C library
-- System-specific libraries as needed
-- Algorithm optimization
-- Efficient data structures
+### Build on Windows
+For Windows, use the following commands:
+```sh
+cd <Project>
+make -f Makefile.windows all
+```
+This will create an executable named `Main.exe` in the `build` directory using MinGW.
 
-### Code Quality
-- Clean, readable implementation
-- Proper error handling
-- Resource management
-- Well-documented algorithms
+### Build for WebAssembly
+To build the project for web deployment, use Emscripten:
+```sh
+cd <Project>
+make -f Makefile.web all
+```
+This will compile the source code and generate HTML, JavaScript, and WebAssembly files in the `build` directory. You can serve the `index.html` file using a web server to view the application.
 
-## Development Notes
+### Execute
+After building, you can run the executable as follows:
+```sh
+# On Linux
+make -f Makefile.linux exe
 
-### Architecture Decisions
-- Modular design for reusability
-- Efficient algorithms for performance
-- Clear separation of concerns
-- Extensible structure
+# On Windows
+make -f Makefile.windows exe
+```
+For WebAssembly, open the `index.html` file in a web browser to interact with the application.
 
-### Performance Optimizations
-- Algorithm efficiency
-- Memory layout optimization
-- Cache-conscious programming
-- Minimal overhead
-
-### Portability
-- Cross-platform compatible
-- Platform-specific optimizations where possible
-- Standard library usage
-- No external dependencies (where feasible)
-
-## Troubleshooting
-
-### Build Issues
-- Ensure compiler is installed
-- Check file paths and permissions
-- Verify Make installation
-- Review compiler error messages
-
-### Runtime Issues
-- Check input data validity
-- Verify file accessibility
-- Ensure sufficient memory
-- Review output format
-
-### Performance Issues
-- Check compiler optimization flags
-- Profile hot code paths
-- Review algorithm complexity
-- Consider input size
-
-## Future Improvements
-
-Potential enhancements:
-- Additional optimization opportunities
-- Extended functionality
-- Platform-specific optimizations
-- Performance profiling
-
-## References
-
-For technical background:
-- Algorithm textbooks
-- Computer science references
-- Language documentation
-- Online educational resources
-
----
-
-*Project implementing practical algorithms and data structures in C/C++*
+### Clean Build
+To clean the build artifacts and start fresh, use:
+```sh
+make -f Makefile.linux clean
+```
+This will remove all files generated during the build process.
